@@ -1,8 +1,10 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry:path.resolve(__dirname, 'src','index.js'),
+  entry: path.resolve(__dirname, 'src','index.js'),
   output: {
+    publicPath:'',
     path: path.dirname(__dirname, 'public'),
     filename: 'bundle.js'
   },
@@ -36,5 +38,11 @@ module.exports = {
     contentBase:path.resolve(__dirname, 'public'),
     open: true,
     hot: true
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template:  path.resolve(__dirname, 'public','index.html'),
+    }),
+  ]
 }

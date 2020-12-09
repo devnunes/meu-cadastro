@@ -1,5 +1,4 @@
 import React from 'react';
-import {  } from "react-icons/";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
