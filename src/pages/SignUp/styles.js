@@ -26,13 +26,61 @@ export const Content = styled.div`
   width: 100%;
 `;
 
+export const Form = styled.form`
+  width: 320px;
+
+  p {
+    margin: 6px 12px 0;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: #8F8F8F;
+  }
+  span {
+    margin: 0 280px 7px 0;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: #8F8F8F;
+  }
+
+`;
+
+export const Title = styled.h1`
+    text-align: center;
+    margin: 0 0 6px;
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #333333;
+`;
+
 export const ContentBody = styled.div`
   display: flex;
-
+  justify-content: space-between;
+  width: 100%;
+  
   > div {
     display: flex;
     flex-direction: column;
-    padding: 16px;
+
+    > span {
+      width: 100%;
+    }
   }
 `;
 

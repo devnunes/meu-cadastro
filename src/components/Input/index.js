@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from 'react';
 
 import { Container } from './styles'
 
-export default function Input({defaultValue}) {
+export default function Input({defaultValue, ...rest}) {
   const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -24,6 +24,7 @@ export default function Input({defaultValue}) {
         onBlur={handleInputBlur}
         placeholder={placeholder}
         ref={inputRef}
+        {...rest}
       />
     </Container>
   );
