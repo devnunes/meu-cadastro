@@ -1,10 +1,17 @@
 import React from 'react';
-import SignUp from './pages/SignUp';
+import { BrowserRouter } from 'react-router-dom';
 
-import './App.css';
+import GlobalStyle from './styles/global';
+import Routes from './routes';
 
-function App() {
-	return <SignUp />;
-}
+export default function App() {
+	return (
+		<>
+			<BrowserRouter>
+				<Routes />
+			</BrowserRouter>
+			<GlobalStyle />
+		</>
+	)
+};
 
-export default App;
