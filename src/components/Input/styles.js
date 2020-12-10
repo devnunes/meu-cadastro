@@ -2,20 +2,21 @@ import styled, { css } from 'styled-components';
 
 import Tooltip from '../Tooltip';
 
-// interface ContainerProps {
-//   isFocused: boolean;
-//   isFilled: boolean;
-//   isErrored: boolean;
-// }
-
 export const Container = styled.div`
-  background: #f5f5f5;
-  padding: 18px 40px 18px 14px;
   width: 100%;
+`;
+
+export const Label = styled.label`
+  font-size: 14px;
+  line-height: 1.29;
+  color: #8F8F8F;
+`;
+
+export const Content = styled.div`
+  background: #f5f5f5;
   border: solid 1px #e6e6e6;
   border-radius: 3px;
-  margin: 9px 0 0;
-
+  margin: 9px 0 35px 0;
 
   ${(props) =>
     props.isErrored &&
@@ -28,12 +29,14 @@ export const Container = styled.div`
       color: #ff9000;
       border-color: #ff9000;
     `}
+  
   input {
     flex: 1;
+    padding: 18px 0px 18px 14px;
     border: 0;
     background: transparent;
     &::placeholder {
-      color: #666360;
+      color: #cccccc;
     }
   }
   svg {

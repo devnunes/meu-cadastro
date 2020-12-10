@@ -3,9 +3,16 @@ import React from 'react';
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-import { Container, Imagem, Cover, Content, Form, Title, ContentBody } from './styles';
-
-import signInBackgroundImg from '../../assets/rawpixel-411166-unsplash@2x.png';
+import { 
+  Container, 
+  Image,
+  Text,
+  Content, 
+  Form, 
+  Title, 
+  ContentBody,
+  AcceptTermsBox 
+} from './styles';
 
 export default function SignUp() {
   
@@ -15,31 +22,38 @@ export default function SignUp() {
   }
   return (
     <Container>
-      <Cover>
-        <Imagem src={signInBackgroundImg}/>
-      </Cover>
+      <Image />
+      <Text>
+        <div>
+          <p>"Obtive crédito para capital de giro. O processo foi bem sucedido e 
+            tudo que foi abordado, foi cumprido."</p>
+          <span>Camila Bragança,</span>
+          <span>Sideral Tecnologia</span>
+        </div>
+      </Text>
       <Content>
         <Form onSubmit={handleSubmit}>
           <Title>Criar meu cadastro</Title>
           <p>Para acompanhar sua contratação de crédito você utilizará seu e-mail e CPF.</p>
-          <label >E-mail</label>
-          <Input defaultValue={'Utilize seu melhor e-mail'}/>
+          <Input defaultValue={'Utilize seu melhor e-mail'} type="email" label="E-mail" />
           
           <ContentBody>
-            <div>
-              <label >CPF</label>
-              <Input defaultValue={'998.767.888-70'}/>
-            </div>
-            <div>
-              <label >Data de nascimento</label>
-              <Input defaultValue={'dd/mm/aaaa'} />
-            </div>
+              <Input defaultValue={'998.767.888-70'}  label="CPF" />
+              <Input defaultValue={'dd/mm/aaaa'} label="Data de nascimento" />
           </ContentBody>
           
-          <label >Senha</label>
-          <Input defaultValue={'Cadastre uma senha'} type="password" />
+          <Input defaultValue={'Cadastre uma senha'} 
+            type="password" 
+            label="Senha" 
+            icon="BsFillEyeFill"
+            />
+          <AcceptTermsBox>
+            <input type="checkbox" ></input>
+            <p>Li e estou de acordo com a <a href="#">Política de Privacidade </a> 
+            e a <a href="#">Política de Uso de Informações</a> .</p>
+          </AcceptTermsBox>
 
-          <Button type="submit" > Cadastrar</Button>
+          <button type="submit" > <span>Cadastrar</span> </button>
         </Form>
       </Content>
     </Container>

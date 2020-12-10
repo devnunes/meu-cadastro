@@ -7,15 +7,20 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
   }
+  
   body {
     -webkit-font-smoothing: antialiased !important;
+    letter-spacing: normal;
   }
+
   body, input, button{
-    font: 16px Roboto, sans-serif;
+    font: 16px Arial, sans-serif;
   }
+
   #root {
     margin: 0 auto;
   }
+
   button {
     cursor: pointer;
   }
