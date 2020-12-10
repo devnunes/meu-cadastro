@@ -39,6 +39,7 @@ export const Content = styled.div`
     border: 0;
     background: transparent;
     font-size: 16px;
+    width: 100%;
 
     &::placeholder {
       color: #cccccc;

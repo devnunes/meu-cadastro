@@ -3,7 +3,7 @@ import { shade } from 'polished';
 
 import px2vw from '../../utils/px2vw';
 
-import signInBackgroundImg from '../../../public/assets/rawpixel-411166-unsplash@3x.jpg';
+import signInBackgroundImg from '../../../public/assets/background/rawpixel-411166-unsplash@3x.jpg';
 
 export const Container = styled.div`
   display: flex;
@@ -73,18 +73,42 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: ${px2vw(900)};
+  }
 `;
 
 export const Header = styled.div`
-  width: 360px;
-  height: 64px;
-  margin: 0 0 84px;
+  width: 100%;
+  height: 65px;
+  margin: 0 0 ${px2vw(250)};
   padding: 20px 32px 20px 24px;
-  box-shadow: inset 0 -1px 0 0 #e6e6e6;
+  display: flex;
+  justify-content: flex-end;
+
+  > svg {
+    width: 75px;
+    height: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 56px;
+    margin: 0 0 38px;
+  }
+
+  @media (max-width: 768px) {
+    box-shadow: inset 0 -1px 0 0 #e6e6e6;
+  }
 `;
 
 export const Form = styled.form`
   width: ${px2vw(1290)};
+
+  @media (min-width: 1024px) {
+    width: ${px2vw(360)};
+  }
 
   p {
     margin: 6px 12px 23px 0;
@@ -117,11 +141,22 @@ export const Title = styled.h1`
   line-height: 1.25;
   text-align: left;
   color: #333333;
+  @media (min-width: 1024px) {
+    text-align: center;
+  }
 `;
 
 export const ContentBody = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    > div {
+      width: ${px2vw(167)};
+    }
+  }
 `;
 
 export const AcceptTermsBox = styled.div`
@@ -132,7 +167,7 @@ export const AcceptTermsBox = styled.div`
   border: solid 1px #e6e6e6;
   border-radius: 3px;
   padding: 16px 24px 16px 16px;
-  height: ${px2vw(350)};
+  height: 92px;
 
   span {
     margin: 0 0 0 12px;
@@ -144,12 +179,20 @@ export const AcceptTermsBox = styled.div`
       text-decoration: none;
       color: #4c8afe;
     }
+
+    @media (min-width: 1024px) {
+      font-size: 12px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    height: 56px;
   }
 `;
 
 export const Footer = styled.div`
   margin-top: ${px2vw(380)};
-  height: ${px2vw(250)};
+  height: 65px;
   border-top: 2px solid #e6e6e6;
   display: flex;
   justify-content: center;
@@ -167,5 +210,14 @@ export const Footer = styled.div`
       text-decoration: none;
       color: #4c8afe;
     }
+
+    @media (min-width: 1024px) {
+      margin-top: 16px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 88px;
+    height: 74px;
   }
 `;
