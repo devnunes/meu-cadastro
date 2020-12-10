@@ -2,46 +2,47 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src','index.js'),
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.dirname(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.js$|\.jsx$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use:[
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
-        ]
-        
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
         test: /.*\.(gif|png|jpe?g)$/i,
         use: {
           loader: 'file-loader',
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   devServer: {
-    contentBase:path.resolve(__dirname, 'public'),
+    contentBase: path.resolve(__dirname, 'public'),
     open: true,
-    hot: true
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template:  path.resolve(__dirname, 'public','index.html'),
+      template: path.resolve(__dirname, 'public', 'index.html'),
     }),
-  ]
-}
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+};

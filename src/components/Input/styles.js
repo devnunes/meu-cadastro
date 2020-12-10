@@ -9,10 +9,13 @@ export const Container = styled.div`
 export const Label = styled.label`
   font-size: 14px;
   line-height: 1.29;
-  color: #8F8F8F;
+  color: #8f8f8f;
 `;
 
 export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #f5f5f5;
   border: solid 1px #e6e6e6;
   border-radius: 3px;
@@ -35,6 +38,8 @@ export const Content = styled.div`
     padding: 18px 0px 18px 14px;
     border: 0;
     background: transparent;
+    font-size: 16px;
+
     &::placeholder {
       color: #cccccc;
     }
