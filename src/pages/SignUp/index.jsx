@@ -32,7 +32,7 @@ export default function SignUp() {
               Obtive crédito para capital de giro. O processo foi bem sucedido e
               tudo que foi abordado, foi cumprido.
             </q>
-            <span>Camila Bragança,</span>
+            <span className="name">Camila Bragança,</span>
             <span>Sideral Tecnologia</span>
           </div>
         </Text>
@@ -85,7 +85,7 @@ export default function SignUp() {
             <span>
               Li e estou de acordo com a
               <Link to="/"> Política de Privacidade </Link>e a
-              <Link to="/"> Política de Uso de Informações</Link>
+              <Link to="/"> Política de Uso de Informações</Link>.
             </span>
           </AcceptTermsBox>
 
@@ -95,7 +95,7 @@ export default function SignUp() {
 
           <Footer>
             <span>
-              Já fiz meu cadastro. <Link to="/">Entrar agora.</Link>
+              Já fiz meu cadastro. <Link to="/">Entrar agora</Link>.
             </span>
           </Footer>
         </Form>
