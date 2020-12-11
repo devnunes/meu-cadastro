@@ -10,13 +10,12 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 100%;
-  height: 100vh;
 
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
   }
 
-  div.image {
+  > div.image {
     display: flex;
 
     @media (max-width: 768px) {
@@ -30,7 +29,6 @@ export const Image = styled.div`
   background: url(${signInBackgroundImg}) no-repeat center;
   background-size: cover;
   position: relative;
-
   width: ${px2vw(550)};
 
   &::after {
@@ -55,16 +53,27 @@ export const Text = styled.div`
 
   div {
     position: absolute;
-    bottom: 0;
-    font-size: 20px;
-    left: -286px;
+    bottom: ${px2vw(80)};
+    left: -${px2vw(480)};
     color: #fff;
     display: flex;
-    text-align: right;
     flex-direction: column;
-    margin: 0 40px 40px 0;
+    width: ${px2vw(440)};
+    text-align: right;
 
-    span {
+    > q {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    > span {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    > span.name {
+      font-weight: bold;
+      margin-bottom: 4px;
     }
   }
 `;
@@ -107,17 +116,17 @@ export const Form = styled.form`
   width: ${px2vw(1290)};
 
   @media (min-width: 1024px) {
-    width: ${px2vw(360)};
+    width: ${px2vw(400)};
   }
 
-  p {
+  > p {
     margin: 6px 12px 23px 0;
     font-size: 16px;
     line-height: 1.5;
     color: #8f8f8f;
   }
 
-  button {
+  > button {
     margin: 48px 0 0;
     width: 100%;
     height: 50px;
@@ -141,6 +150,7 @@ export const Title = styled.h1`
   line-height: 1.25;
   text-align: left;
   color: #333333;
+
   @media (min-width: 1024px) {
     text-align: center;
   }
@@ -154,7 +164,7 @@ export const ContentBody = styled.div`
     flex-wrap: nowrap;
     justify-content: space-between;
     > div {
-      width: ${px2vw(167)};
+      width: ${px2vw(180)};
     }
   }
 `;
@@ -168,8 +178,14 @@ export const AcceptTermsBox = styled.div`
   border-radius: 3px;
   padding: 16px 24px 16px 16px;
   height: 92px;
+  color: #cccccc;
 
-  span {
+  > input {
+    transform: scale(1.85);
+    padding: 10px;
+  }
+
+  > span {
     margin: 0 0 0 12px;
     font-family: Arial;
     font-size: 14px;
@@ -197,7 +213,7 @@ export const Footer = styled.div`
   display: flex;
   justify-content: center;
 
-  span {
+  > span {
     /* : 18px; */
     margin: ${px2vw(85)} 0 0;
     font-family: Arial;

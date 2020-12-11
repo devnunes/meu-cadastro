@@ -29,6 +29,9 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    open: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
