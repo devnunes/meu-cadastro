@@ -26,6 +26,7 @@ export const Content = styled.div`
     css`
       border-color: #ff5863;
     `}
+
   ${(props) =>
     props.isFocused &&
     css`

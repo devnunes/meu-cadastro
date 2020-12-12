@@ -1,5 +1,5 @@
 /node_modules
 
-/public/build.js
+/public
 
 yarn-error.log

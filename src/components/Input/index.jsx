@@ -21,6 +21,8 @@ export default function Input({ defaultValue, label, icon = '', ...rest }) {
 
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
+    // eslint-disable-next-line no-console
+    console.log(isFocused);
   }, []);
 
   const handleChange = useCallback(
