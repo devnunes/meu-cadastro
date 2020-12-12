@@ -1,10 +1,6 @@
-<img src="./images/logo.sample.png" alt="Logo of the project" align="right">
+# Meu Cadastro &middot; [![Build Status](https://img.shields.io/netlify/c91abd04-1369-4de0-9764-b3becc96be66)](https://app.netlify.com/sites/meu-cadastro/deploys) [![npm](https://img.shields.io/npm/v/yarn?label=yarn)](https://yarnpkg.com/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
-# Name of the project &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
-
-> Additional information or tag line
-
-A brief description of your project, what it is used for.
+An Landing Page for leads capture.
 
 ## Installing / Getting started
 
@@ -12,20 +8,33 @@ A quick introduction of the minimal setup you need to get a hello world up &
 running.
 
 ```shell
-commands here
+yarn install
+
+yarn start
 ```
 
-Here you should say what actually happens when you execute the code above.
+Your default browser will open the project.
 
 ## Developing
 
 ### Built With
 
-List main libraries, frameworks used including versions (React, Angular etc...)
+- [React](https://reactjs.org/)
+  React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.
+
+- [Webpack](https://webpack.js.org/)
+  webpack is an open-source JavaScript module bundler. It is made primarily for JavaScript, but it can transform front-end assets such as HTML, CSS, and images if the corresponding loaders are included. webpack takes modules with dependencies and generates static assets representing those modules.
+
+- [Styled Components](https://styled-components.com/)
+  Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, styled-components allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier!
+
+- [Eslint](https://eslint.org/)
+  ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. It was created by Nicholas C. Zakas in 2013. Rules in ESLint are configurable, and customized rules can be defined and loaded. ESLint covers both code quality and coding style issues.
 
 ### Prerequisites
 
-What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
+- Node: ^12.18.4
+- Yarn: ^1.22.5
 
 ### Setting up Dev
 
@@ -33,46 +42,24 @@ Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clone https://github.com/your/your-project.git
-cd your-project/
-packagemanager install
+git clonehttps://github.com/devnunes/meu-cadastro.git
+
+cd meu-cadastro/
+
+yarn install
 ```
 
 And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
 
 ### Building
 
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here. for example:
+To get a production version, you may run:
 
 ```shell
-./configure
-make
-make install
+yarn build
 ```
 
-Here again you should state what actually happens when the code above gets
-executed.
-
-### Deploying / Publishing
-
-give instructions on how to build and release a new version
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy your-project -s server.com -u username -p password
-```
-
-And again you'd need to tell what the previous code actually does.
-
-## Versioning
-
-We can maybe use [SemVer](http://semver.org/) for versioning. For the versions available, see the [link to tags on this repository](/tags).
-
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when using the project.
+You will get the production version of code in public/bundle.js folder.
 
 ## Tests
 
@@ -85,16 +72,8 @@ Give an example
 
 ## Style guide
 
-Explain your code style and show how to check it.
-
-## Api Reference
-
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
-
-## Database
-
-Explaining what database (and version) has been used. Provide download links.
-Documents your database design and schemas, relations etc...
+The style guide used in this project is the Airbnb style.
+See more on [Airbnb Style Guide](https://github.com/airbnb/javascript).
 
 ## Licensing
 

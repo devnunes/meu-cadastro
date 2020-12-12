@@ -3,7 +3,7 @@ import { shade } from 'polished';
 
 import px2vw from '../../utils/px2vw';
 
-import signInBackgroundImg from '../../../public/assets/background/rawpixel-411166-unsplash@3x.jpg';
+import signInBackgroundImg from '../../assets/background/rawpixel-411166-unsplash@3x.jpg';
 
 export const Container = styled.div`
   display: flex;
@@ -166,6 +166,12 @@ export const ContentBody = styled.div`
     > div {
       width: ${px2vw(180)};
     }
+  }
+
+  > input[type='date']::-webkit-calendar-picker-indicator,
+  > input[type='date']::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
   }
 `;
 

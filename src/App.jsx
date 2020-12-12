@@ -1,17 +1,21 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import GlobalStyle from './styles/global';
+import AppProvider from './hooks';
+
 import Routes from './routes';
 
-import 'url-polyfill';
+import GlobalStyle from './styles/global';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+      <AppProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </AppProvider>
+
       <GlobalStyle />
     </>
   );

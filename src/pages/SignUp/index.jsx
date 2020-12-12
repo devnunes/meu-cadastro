@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// import { useForm } from '../../hooks/Form';
+
 import Input from '../../components/Input';
 
 import {
@@ -17,10 +19,10 @@ import {
 } from './styles';
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    // eslint-disable-next-line no-alert
-    alert('Oi cara de boi');
-    event.preventDefault();
+  // const { email, document, password, birth } = useForm();
+
+  const handleSubmit = (test) => {
+    test.preventDefault();
   };
   return (
     <Container>
@@ -67,21 +69,28 @@ export default function SignUp() {
             defaultValue="Utilize seu melhor e-mail"
             type="email"
             label="E-mail"
+            name="email"
           />
 
           <ContentBody>
-            <Input defaultValue="998.767.888-70" label="CPF" />
-            <Input defaultValue="dd/mm/aaaa" label="Data de nascimento" />
+            <Input defaultValue="998.767.888-70" label="CPF" name="cpf" />
+            <Input
+              defaultValue="dd/mm/aaaa"
+              type="date"
+              name="birth"
+              label="Data de nascimento"
+            />
           </ContentBody>
 
           <Input
             defaultValue="Cadastre uma senha"
             type="password"
+            name="password"
             label="Senha"
             icon="BsFillEyeFill"
           />
           <AcceptTermsBox>
-            <input type="checkbox" />
+            <input type="checkbox" required />
             <span>
               Li e estou de acordo com a
               <Link to="/"> Política de Privacidade </Link>e a

@@ -29,11 +29,11 @@ export const Content = styled.div`
   ${(props) =>
     props.isFocused &&
     css`
-      color: #ff9000;
-      border-color: #ff9000;
+      color: #4c8afe;
+      border-color: #4c8afe;
     `}
   
-  input {
+  > input {
     flex: 1;
     padding: 18px 0px 18px 14px;
     border: 0;
@@ -45,9 +45,11 @@ export const Content = styled.div`
       color: #cccccc;
     }
   }
-  svg {
+
+  > svg {
     margin-right: 16px;
   }
+
   & + div {
     margin-top: 8px;
   }
@@ -56,10 +58,10 @@ export const Content = styled.div`
 export const Error = styled(Tooltip)`
   height: 20px;
   margin-left: 16px;
-  svg {
+  > svg {
     margin: 0;
   }
-  span {
+  > span {
     background: #ff5863;
     color: #fff;
     &::before {
