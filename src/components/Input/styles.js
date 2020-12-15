@@ -49,6 +49,7 @@ export const Content = styled.div`
 
   > svg {
     margin-right: 16px;
+    color: #8f8f8f !important;
   }
 
   & + div {
