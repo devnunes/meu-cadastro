@@ -39,7 +39,7 @@ export default function SignUp() {
         document,
       ),
       birthIsErrored: !/([0-9]{2}[/]?[0-9]{2}[/]?[0-9]{4})/.test(birth),
-      passwordIsErrored: !/([0-9]{6})/.test(password),
+      passwordIsErrored: !/(^[a-zA-Z0-9_]{6,}$)/.test(password),
     };
     setError(newState);
     if (

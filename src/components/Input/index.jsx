@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
+import PropTypes from 'prop-types';
 import * as BootstrapIcons from 'react-icons/bs';
 
 import { useForm } from '../../hooks/Form';
@@ -10,7 +11,7 @@ import { Container, Content, Label } from './styles';
 export default function Input({
   placeholderProps,
   label,
-  icon = '',
+  icon,
   error = false,
   errorMessage,
   name,
@@ -91,3 +92,21 @@ export default function Input({
     </Container>
   );
 }
+
+Input.propTypes = {
+  placeholderProps: PropTypes.string,
+  label: PropTypes.string,
+  icon: PropTypes.string,
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  name: PropTypes.string,
+};
+
+Input.defaultProps = {
+  placeholderProps: '',
+  label: '',
+  icon: '',
+  error: false,
+  errorMessage: '',
+  name: '',
+};
