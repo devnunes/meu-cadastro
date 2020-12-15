@@ -38,8 +38,8 @@ export default function SignUp() {
       documentIsErrored: !/([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})/.test(
         document,
       ),
-      birthIsErrored: /([0-9]{2}[/]?[0-9]{2}[/]?[0-9]{4})/.test(birth),
-      passwordIsErrored: /([0-9]{6})/.test(password),
+      birthIsErrored: !/([0-9]{2}[/]?[0-9]{2}[/]?[0-9]{4})/.test(birth),
+      passwordIsErrored: !/([0-9]{6})/.test(password),
     };
     setError(newState);
     if (
