@@ -205,12 +205,9 @@ export const AcceptTermsBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f5f5;
-  border: solid 1px #e6e6e6;
-  border-radius: 3px;
   padding: 16px 24px 16px 16px;
   height: 92px;
-  color: #cccccc;
+  color: #8f8f8f;
 
   > input {
     transform: scale(1.85);
