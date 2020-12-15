@@ -6,7 +6,7 @@ import { useForm } from '../../hooks/Form';
 
 import { cpfMask, birthMask } from '../../utils/mask';
 
-import { Container, Content, Label } from './styles';
+import { Container, Content, Label, Error } from './styles';
 
 export default function Input({
   placeholderProps,
@@ -89,6 +89,7 @@ export default function Input({
         />
         {!!icon && <InputIcon size={20} />}
       </Content>
+      <Error isErrored={error}>{errorMessage}</Error>
     </Container>
   );
 }

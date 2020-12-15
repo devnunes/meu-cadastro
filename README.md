@@ -1,11 +1,16 @@
 # Meu Cadastro &middot; [![Build Status](https://img.shields.io/netlify/c91abd04-1369-4de0-9764-b3becc96be66)](https://app.netlify.com/sites/meu-cadastro/deploys) [![npm](https://img.shields.io/npm/v/yarn?label=yarn)](https://yarnpkg.com/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
-An Landing Page for leads capture.
+Registration Page.
+
+## Production Meu Cadastro
+
+[Meu Cadastro](https://meu-cadastro.netlify.app/)
 
 ## Installing / Getting started
 
-A quick introduction of the minimal setup you need to get a hello world up &
-running.
+You will need an environment with node and yarn installed.
+Use the text editor of your choice.
+And then run, in the terminal, this codes inside of the folder project:
 
 ```shell
 yarn install
@@ -42,14 +47,12 @@ Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clonehttps://github.com/devnunes/meu-cadastro.git
+git clone https://github.com/devnunes/meu-cadastro.git
 
 cd meu-cadastro/
 
 yarn install
 ```
-
-And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
 
 ### Building
 
@@ -67,7 +70,7 @@ Describe and show how to run the tests with code examples.
 Explain what these tests test and why.
 
 ```shell
-Give an example
+yarn test
 ```
 
 ## Style guide

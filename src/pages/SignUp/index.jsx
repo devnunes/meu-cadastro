@@ -106,7 +106,7 @@ export default function SignUp() {
             label="E-mail"
             name="email"
             error={emailIsErrored}
-            errorMessage="E-mail inválido"
+            errorMessage="O campo email é obrigatório"
           />
 
           <ContentBody>

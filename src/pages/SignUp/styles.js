@@ -3,7 +3,7 @@ import { shade } from 'polished';
 
 import px2vw from '../../utils/px2vw';
 
-import signInBackgroundImg from '../../assets/background/rawpixel-411166-unsplash@3x.jpg';
+import signInBackgroundImg from '../../assets/background/rawpixel-411166-unsplash.jpg';
 
 export const Container = styled.div`
   display: flex;

@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import Tooltip from '../Tooltip';
-
 export const Container = styled.div`
   width: 100%;
 `;
@@ -25,6 +23,7 @@ export const Content = styled.div`
     props.isErrored &&
     css`
       border-color: #ff5863;
+      margin: 9px 0 0px 0;
     `}
 
   ${(props) =>
@@ -57,17 +56,15 @@ export const Content = styled.div`
   }
 `;
 
-export const Error = styled(Tooltip)`
-  height: 20px;
-  margin-left: 16px;
-  > svg {
-    margin: 0;
-  }
-  > span {
-    background: #ff5863;
-    color: #fff;
-    &::before {
-      border-color: #ff5863 transparent;
-    }
-  }
+export const Error = styled.span`
+  color: #ff5863;
+  font-size: 14px;
+  display: none;
+  margin: 5px 0 0;
+  ${(props) =>
+    props.isErrored &&
+    css`
+      display: block;
+      height: 30px;
+    `}
 `;
