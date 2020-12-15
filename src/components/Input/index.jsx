@@ -3,15 +3,29 @@ import * as BootstrapIcons from 'react-icons/bs';
 
 import { useForm } from '../../hooks/Form';
 
+import { cpfMask, birthMask } from '../../utils/mask';
+
 import { Container, Content, Label } from './styles';
 
-export default function Input({ defaultValue, label, icon = '', ...rest }) {
-  const { setEmail, setDocument, setBirth, setPass } = useForm();
+export default function Input({
+  placeholderProps,
+  label,
+  icon = '',
+  error = false,
+  errorMessage,
+  name,
+  ...rest
+}) {
+  const { onChange } = useForm();
 
   const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(false);
-  const [placeholder] = useState(defaultValue);
+  const [formData, setFormData] = useState({
+    value: '',
+    key: '',
+  });
+  const [placeholder] = useState(placeholderProps);
 
   const InputIcon = BootstrapIcons[icon];
 
@@ -21,32 +35,53 @@ export default function Input({ defaultValue, label, icon = '', ...rest }) {
 
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
-    // eslint-disable-next-line no-console
-    console.log(isFocused);
   }, []);
 
   const handleChange = useCallback(
     (event) => {
-      const functions = {
-        email: () => setEmail({ email: event.target.value }),
-        cpf: () => setDocument({ document: event.target.value }),
-        birth: () => setBirth({ birth: event.target.value }),
-        password: () => setPass({ password: event.target.value }),
-      };
-      functions[event.target.getAttribute('name')]();
+      if (
+        event.target.getAttribute('name') === 'document' ||
+        event.target.getAttribute('name') === 'birth'
+      ) {
+        setFormData({
+          key: event.target.getAttribute('name'),
+          value:
+            event.target.getAttribute('name') === 'document'
+              ? cpfMask(event.target.value)
+              : birthMask(event.target.value),
+        });
+        onChange({
+          key: event.target.getAttribute('name'),
+          value:
+            event.target.getAttribute('name') === 'document'
+              ? cpfMask(event.target.value)
+              : birthMask(event.target.value),
+        });
+      } else {
+        setFormData({
+          key: event.target.getAttribute('name'),
+          value: inputRef.current?.value,
+        });
+        onChange({
+          key: event.target.getAttribute('name'),
+          value: event.target.value,
+        });
+      }
     },
-    [setEmail, setDocument, setBirth, setPass],
+    [setFormData, onChange],
   );
   return (
     <Container>
       <Label>{label}</Label>
-      <Content isFocused={isFocused}>
+      <Content isFocused={isFocused} isErrored={error}>
         <input
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           placeholder={placeholder}
           onChange={handleChange}
           ref={inputRef}
+          value={formData.value}
+          name={name}
           {...rest}
         />
         {!!icon && <InputIcon size={20} />}

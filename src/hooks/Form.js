@@ -3,29 +3,41 @@ import React, { createContext, useState, useContext } from 'react';
 const FormContext = createContext({});
 
 function FormProvider({ children }) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    email: '',
+    document: '',
+    birth: '',
+    password: '',
+  });
+  const [error, setError] = useState({});
 
-  function setEmail({ email }) {
-    setData({ ...data, email });
+  function onChange({ key, value }) {
+    setData({ ...data, [key]: value });
   }
 
-  function setDocument({ document }) {
-    setData({ ...data, document });
-  }
+  function validateFields() {
+    if (data.email) {
+      setError({ ...error, emailIsErrored: !/\S+@\S+\.\S+/.test(data.email) });
+    }
 
-  function setBirth({ birth }) {
-    setData({ ...data, birth });
+    if (data.document) {
+      setError({
+        ...error,
+        documentIsErrored: !/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/.test(
+          data.document,
+        ),
+      });
+    }
   }
-
-  function setPass({ password }) {
-    setData({ ...data, password });
-  }
-
-  // function validateFields() {}
 
   return (
     <FormContext.Provider
-      value={{ ...data, setEmail, setDocument, setBirth, setPass }}
+      value={{
+        ...data,
+        ...error,
+        validateFields,
+        onChange,
+      }}
     >
       {children}
     </FormContext.Provider>

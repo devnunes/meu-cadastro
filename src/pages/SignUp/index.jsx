@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import { useForm } from '../../hooks/Form';
+import { useForm } from '../../hooks/Form';
 
 import Input from '../../components/Input';
 
@@ -19,11 +19,13 @@ import {
 } from './styles';
 
 export default function SignUp() {
-  // const { email, document, password, birth } = useForm();
+  const { emailIsErrored, documentIsErrored, validateFields } = useForm();
 
   const handleSubmit = (test) => {
     test.preventDefault();
+    validateFields();
   };
+
   return (
     <Container>
       <div className="image">
@@ -40,8 +42,8 @@ export default function SignUp() {
         </Text>
       </div>
       <Content>
-        <Header>
-          <svg
+        <Header />
+        {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="75"
             height="24"
@@ -58,7 +60,7 @@ export default function SignUp() {
               />
             </g>
           </svg>
-        </Header>
+        </Header> */}
         <Form onSubmit={handleSubmit}>
           <Title>Criar meu cadastro</Title>
           <p>
@@ -66,24 +68,29 @@ export default function SignUp() {
             e CPF.
           </p>
           <Input
-            defaultValue="Utilize seu melhor e-mail"
-            type="email"
+            placeholderProps="Utilize seu melhor e-mail"
             label="E-mail"
             name="email"
+            error={emailIsErrored}
+            errorMessage="E-mail inválido"
           />
 
           <ContentBody>
-            <Input defaultValue="998.767.888-70" label="CPF" name="cpf" />
             <Input
-              defaultValue="dd/mm/aaaa"
-              type="date"
+              placeholderProps="998.767.888-70"
+              label="CPF"
+              name="document"
+              error={documentIsErrored}
+            />
+            <Input
+              placeholderProps="dd/mm/aaaa"
               name="birth"
               label="Data de nascimento"
             />
           </ContentBody>
 
           <Input
-            defaultValue="Cadastre uma senha"
+            placeholderProps="Cadastre uma senha"
             type="password"
             name="password"
             label="Senha"
