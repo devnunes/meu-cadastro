@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 import px2vw from '../../utils/px2vw';
@@ -93,13 +93,39 @@ export const Header = styled.div`
   width: 100%;
   height: 65px;
   margin: 0 0 ${px2vw(250)};
-  padding: 20px 32px 20px 24px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 
   > svg {
     width: 75px;
     height: 24px;
+    margin: 0 ${px2vw(40)} 0 0;
+    ${(props) =>
+      props.successSubmit &&
+      css`
+        display: none;
+      `}
+  }
+
+  > div {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #2ecc71;
+    justify-content: center;
+    align-items: center;
+
+    > span {
+      font-family: Arial;
+      font-size: 16px;
+      color: #fff;
+    }
+    ${(props) =>
+      props.successSubmit &&
+      css`
+        display: flex;
+      `}
   }
 
   @media (min-width: 1024px) {

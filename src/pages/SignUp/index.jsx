@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useForm } from '../../hooks/Form';
@@ -19,11 +19,42 @@ import {
 } from './styles';
 
 export default function SignUp() {
-  const { emailIsErrored, documentIsErrored, validateFields } = useForm();
+  const {
+    emailIsErrored,
+    documentIsErrored,
+    birthIsErrored,
+    passwordIsErrored,
+    email,
+    document,
+    birth,
+    password,
+    setError,
+  } = useForm();
+  const [successSubmit, setSuccessSubmit] = useState(false);
 
-  const handleSubmit = (test) => {
-    test.preventDefault();
-    validateFields();
+  const validateFormData = () => {
+    const newState = {
+      emailIsErrored: !/\S+@\S+\.\S+/.test(email),
+      documentIsErrored: !/([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})/.test(
+        document,
+      ),
+      birthIsErrored: /([0-9]{2}[/]?[0-9]{2}[/]?[0-9]{4})/.test(birth),
+      passwordIsErrored: /([0-9]{6})/.test(password),
+    };
+    setError(newState);
+    if (
+      !newState.emailIsErrored &&
+      !newState.documentIsErrored &&
+      !newState.birthIsErrored &&
+      !newState.passwordIsErrored
+    ) {
+      setSuccessSubmit(true);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    validateFormData();
   };
 
   return (
@@ -42,8 +73,8 @@ export default function SignUp() {
         </Text>
       </div>
       <Content>
-        <Header />
-        {/* <svg
+        <Header successSubmit={successSubmit}>
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="75"
             height="24"
@@ -60,7 +91,10 @@ export default function SignUp() {
               />
             </g>
           </svg>
-        </Header> */}
+          <div>
+            <span>Parabéns! Cadastro realizado com sucesso!</span>
+          </div>
+        </Header>
         <Form onSubmit={handleSubmit}>
           <Title>Criar meu cadastro</Title>
           <p>
@@ -86,6 +120,7 @@ export default function SignUp() {
               placeholderProps="dd/mm/aaaa"
               name="birth"
               label="Data de nascimento"
+              error={birthIsErrored}
             />
           </ContentBody>
 
@@ -95,6 +130,7 @@ export default function SignUp() {
             name="password"
             label="Senha"
             icon="BsFillEyeFill"
+            error={passwordIsErrored}
           />
           <AcceptTermsBox>
             <input type="checkbox" required />

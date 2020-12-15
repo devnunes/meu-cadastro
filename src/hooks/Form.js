@@ -15,28 +15,13 @@ function FormProvider({ children }) {
     setData({ ...data, [key]: value });
   }
 
-  function validateFields() {
-    if (data.email) {
-      setError({ ...error, emailIsErrored: !/\S+@\S+\.\S+/.test(data.email) });
-    }
-
-    if (data.document) {
-      setError({
-        ...error,
-        documentIsErrored: !/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/.test(
-          data.document,
-        ),
-      });
-    }
-  }
-
   return (
     <FormContext.Provider
       value={{
         ...data,
         ...error,
-        validateFields,
         onChange,
+        setError,
       }}
     >
       {children}

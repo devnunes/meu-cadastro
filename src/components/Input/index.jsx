@@ -50,6 +50,7 @@ export default function Input({
               ? cpfMask(event.target.value)
               : birthMask(event.target.value),
         });
+
         onChange({
           key: event.target.getAttribute('name'),
           value:
@@ -62,6 +63,7 @@ export default function Input({
           key: event.target.getAttribute('name'),
           value: inputRef.current?.value,
         });
+
         onChange({
           key: event.target.getAttribute('name'),
           value: event.target.value,
